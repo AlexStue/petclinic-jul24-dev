@@ -1,3 +1,6 @@
+## New repo from zip for DevOps project
+## Original repo: https://github.com/spring-projects/spring-petclinic
+
 ## This is a Fork of us where are trying to implement DevOps needs like:CI/CD pipelines, .......
 # Spring PetClinic Sample Application [![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)
 
