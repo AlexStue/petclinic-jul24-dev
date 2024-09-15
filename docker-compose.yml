@@ -1,6 +1,25 @@
+version: '3.8' # You can specify the version of Docker Compose if needed
+
 services:
-  mysql:
-    image: mysql:8.4
+  petclinic:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    #image: alexstue/jul24-petclinic:1.0
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+    environment:
+      - SERVER_PORT=8080
+      - MYSQL_URL=jdbc:mysql://mysqlserver/petclinic
+    volumes:
+      - ./:/app
+    depends_on:
+      - mysqlserver
+
+  mysqlserver:
+    image: mysql/mysql-server:8.0
     ports:
       - "3306:3306"
     environment:
@@ -10,16 +29,9 @@ services:
       - MYSQL_PASSWORD=petclinic
       - MYSQL_DATABASE=petclinic
     volumes:
-      - "./conf.d:/etc/mysql/conf.d:ro"
-    profiles:
-      - mysql
-  postgres:
-    image: postgres:16.3
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=petclinic
-      - POSTGRES_USER=petclinic
-      - POSTGRES_DB=petclinic
-    profiles:
-      - postgres
+      - mysql_data:/var/lib/mysql
+      - mysql_config:/etc/mysql/conf.d
+
+volumes:
+  mysql_data:
+  mysql_config:
