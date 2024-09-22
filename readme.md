@@ -1,7 +1,6 @@
 ## New repo from zip for DevOps project
 ## Original repo: https://github.com/spring-projects/spring-petclinic
 
-## This is a Fork of us where are trying to implement DevOps needs like:CI/CD pipelines, .......
 # Spring PetClinic Sample Application [![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/spring-projects/spring-petclinic) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=7517918)
@@ -20,6 +19,7 @@ cd spring-petclinic
 ./mvnw package
 java -jar target/*.jar
 ```
+# ^^^^change into our repo of course!^^^^
 
 You can then access the Petclinic at <http://localhost:8080/>.
 
