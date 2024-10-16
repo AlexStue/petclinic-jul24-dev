@@ -24,15 +24,27 @@ import org.springframework.samples.petclinic.vet.Vet;
 
 public class PetClinicRuntimeHints implements RuntimeHintsRegistrar {
 
+	# @Override
+	# public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
+	# 	hints.resources().registerPattern("db/*"); // https://github.com/spring-projects/spring-boot/issues/32654
+	# 	hints.resources().registerPattern("messages/*");
+	# 	hints.resources().registerPattern("META-INF/resources/webjars/*");
+	# 	hints.resources().registerPattern("mysql-default-conf");
+	# 	hints.serialization().registerType(BaseEntity.class);
+	# 	hints.serialization().registerType(Person.class);
+	# 	hints.serialization().registerType(Vet.class);
+
 	@Override
-	public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
-		hints.resources().registerPattern("db/*"); // https://github.com/spring-projects/spring-boot/issues/32654
-		hints.resources().registerPattern("messages/*");
-		hints.resources().registerPattern("META-INF/resources/webjars/*");
-		hints.resources().registerPattern("mysql-default-conf");
-		hints.serialization().registerType(BaseEntity.class);
-		hints.serialization().registerType(Person.class);
-		hints.serialization().registerType(Vet.class);
+    public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
+        // Register paths for resources you want to make available at runtime
+        hints.resources().registerPattern("db/*"); // Existing pattern for DB resources
+        hints.resources().registerPattern("META-INF/resources/application-mysql.properties"); // Change this to your DB config path
+        hints.resources().registerPattern("messages/*");
+        hints.resources().registerPattern("META-INF/resources/webjars/*");
+        hints.resources().registerPattern("mysql-default-conf");
+        hints.serialization().registerType(BaseEntity.class);
+        hints.serialization().registerType(Person.class);
+        hints.serialization().registerType(Vet.class);
 	}
 
 }
