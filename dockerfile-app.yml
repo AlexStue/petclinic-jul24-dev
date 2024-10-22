@@ -21,8 +21,8 @@ COPY src ./src
 CMD ["./mvnw", "spring-boot:run"]
 
 # Command to build docker-image:
-docker build -t jul24-petclinic-image -f dockerfile-app.yml .
-docker images
-docker tag jul24-petclinic-image alexstue/jul24-petclinic:1.0
-docker push alexstue/jul24-petclinic:1.0
+# docker build -t jul24-petclinic-image -f dockerfile-app.yml .
+# docker images
+# docker tag jul24-petclinic-image alexstue/jul24-petclinic:1.0
+# docker push alexstue/jul24-petclinic:1.0
 
