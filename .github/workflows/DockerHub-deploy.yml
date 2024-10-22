@@ -27,9 +27,11 @@ jobs:
       # Build the Docker image
       - name: Build the Docker image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/jul24-petclinic:1.0 -f app/dockerfile-app.yml
-
+          IMAGE_TAG=jul24-petclinic:${{ github.sha }}
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/$IMAGE_TAG -f app/dockerfile-app .
+        
       # Push the Docker image to DockerHub
       - name: Push the Docker image
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/jul24-petclinic:1.0
+          IMAGE_TAG=jul24-petclinic:${{ github.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/$IMAGE_TAG
